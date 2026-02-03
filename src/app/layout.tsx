@@ -4,9 +4,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/site-header";
 import  { SiteFooter }from "@/components/layout/site-footer";
 
-/**
- * Global SEO Metadata for the Mic’d Up Initiative website. 
- */
+
 export const metadata: Metadata = {
   title: {
     default: "Mic’d Up Initiative",
