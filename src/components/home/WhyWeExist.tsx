@@ -75,8 +75,8 @@ export default function WhyWeExist() {
         influence.
       </p>
       <p className="mt-1 text-base font-medium text-emerald-400">
-        Because how campuses express themselves today shapes the society of
-        tomorrow. 
+        Because society is shaped by voices and that's what we exist to amplify accross Campuses. How campuses express themselves today shapes the society of
+        tomorrow! 
       </p>
     </div>
 
