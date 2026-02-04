@@ -108,7 +108,7 @@ export default function MicTheCampusPage() {
         />
 
         <CTAButton
-          href="/get-involved/partnerships"
+          href="/Get-Involved/Partnerships"
           text="Explore Partnerships"
         />
       </motion.section>
