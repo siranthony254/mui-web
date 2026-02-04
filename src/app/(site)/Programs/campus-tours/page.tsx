@@ -178,7 +178,7 @@ export default function CampusToursPage() {
               </Link>
 
               <Link
-                href="/get-involved/partnerships"
+                href="/Get-Involved/Partnerships"
                 className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-white
                            hover:bg-white/5 hover:border-white/40 hover:scale-[1.02]
                            transition active:scale-[0.97]"
