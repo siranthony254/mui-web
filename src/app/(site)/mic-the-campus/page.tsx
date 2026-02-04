@@ -70,7 +70,7 @@ export default function MicTheCampusPage() {
         </Link>
 
         <Link
-          href="/get-involved/partnerships"
+          href="/Get-Involved/Partnerships"
           className="inline-flex items-center justify-center rounded-full
                      border border-white/20 px-7 py-3 text-sm font-semibold text-white
                      hover:bg-white/5 hover:border-white/40
