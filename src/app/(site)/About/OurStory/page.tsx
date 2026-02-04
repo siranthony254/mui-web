@@ -90,7 +90,8 @@ export default function OurStoryPage() {
             </p>
 
             <p className="font-medium text-amber-300">
-              What started as a microphone became an institution.
+              What we do is not just about amplifying voices—it's about forming
+              them with purpose, integrity, and clarity.
             </p>
           </motion.section>
 
@@ -103,7 +104,7 @@ export default function OurStoryPage() {
             transition={{ duration: 0.7 }}
           >
             <h2 className="text-2xl font-semibold text-amber-200">
-              What We Do
+            Our Operations
             </h2>
 
             <p className="text-white/80 leading-relaxed">
@@ -183,14 +184,16 @@ export default function OurStoryPage() {
             <p className="text-white/80 leading-relaxed">
               From campus conversations to continental dialogues, we are
               equipping young people to think critically, lead responsibly,
-              create meaningfully, and transform the world around them.
+              influence meaningfully, and transform the world around them.
             </p>
 
             <p className="font-semibold text-amber-300">
               Our commitment is not just to be heard—but to ensure a generation
-              is formed, grounded, and Mic’d Up.
+              is formed, grounded, and Mic’d Up. Voicing a Generation Transforming Culture.
             </p>
-
+              <p className="mt-1 text-base font-medium text-emerald-400">
+              Join us in this mission.
+      </p>
             <p className="pt-10 text-xs text-white/40 border-t border-white/10">
               © 2026 Mic’d Up Initiative. All rights reserved.
             </p>
