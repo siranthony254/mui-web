@@ -67,7 +67,7 @@ excellence across campuses and beyond.
     <div className="hidden lg:block relative">
       <div className="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
         <Image
-          src="/images/mui-logo.jpg"
+          src="/images/mui-logo.jpeg"
           alt="MUI LOGO"
           fill
           className="object-cover"
