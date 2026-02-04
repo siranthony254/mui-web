@@ -28,8 +28,9 @@ export default function HomeHero() {
       </h1>
 
       <p className="mt-6 text-base lg:text-lg text-white/70 max-w-xl">
-        MUI is a transformative movement that shapes,the culture of campuses by amplifying voices, ideas,
-and issues that matter, raising a renewed
+        Mic’d Up Initiative (MUI) is a mission-driven platform committed to transforming campus culture by
+amplifying authentic student voices, talents, and ideas through storytelling, mentorship, productions, and
+public conversations, raising a renewed
 generation of young people formed into holistic
 excellence across campuses and beyond.
       </p>
