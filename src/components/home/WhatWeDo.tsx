@@ -54,7 +54,7 @@ export function WhatWeDo() {
       {pillars.map((pillar) => (
         <Link
           key={pillar.title}
-          href={pillar.href}
+          href="/contact"
           className="
             group rounded-2xl
             border border-white/10
