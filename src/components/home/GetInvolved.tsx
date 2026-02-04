@@ -6,21 +6,21 @@ const paths = [
     title: "Ambassadors",
     description:
       "Represent Mic’d Up Initiative within your campus, host conversations, and help surface voices that deserve to be heard.",
-    href: "/Get-involved/Ambassadors",
+    href: "/Get-Involved/Ambassadors",
     cta: "Become an Ambassador",
   },
   {
     title: "Mentors & Advisors",
     description:
       "Support emerging leaders through guidance, expertise, and ethical leadership—shaping the next generation.",
-    href: "/Get-involved/Mentors",
+    href: "/Get-Involved/Mentors",
     cta: "Join as a Mentor",
   },
   {
     title: "Partners & Institutions",
     description:
       "Collaborate with us to support campus dialogue, research, and youth-led initiatives at scale.",
-    href: "/Get-involved/Partnerships",
+    href: "/Get-Involved/Partnerships",
     cta: "Partner with Us",
   },
 ];
