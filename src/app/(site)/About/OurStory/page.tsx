@@ -47,7 +47,7 @@ export default function OurStoryPage() {
 
             <p className="text-white/80 leading-relaxed">
               The journey began as a campus-based podcast—Mic’d Up Campus
-              Podcast—hosted by Sir Anthony Munene. The initial vision was
+              Podcast—hosted by Sir Anthony. The initial vision was
               clear: to create space for students, lecturers, and education
               stakeholders to speak honestly about campus life and the forces
               shaping it.
