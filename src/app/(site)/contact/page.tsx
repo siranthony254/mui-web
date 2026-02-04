@@ -5,6 +5,7 @@ export default function ContactPage() {
     <section className="min-h-screen bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
+          
           {/* LEFT: Context */}
           <div className="max-w-xl space-y-6">
             <header className="space-y-4">
@@ -43,23 +44,31 @@ export default function ContactPage() {
 
           {/* RIGHT: Form */}
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg">
-            <h2 className="text-xl font-semibold text-amber-200 mb-6">
+            <h2 className="mb-6 text-xl font-semibold text-amber-200">
               Send a Message
             </h2>
 
-            <form action="/thank-you" method="POST" className="space-y-6">
-              {/* Name */}
-              <div className="space-y-2">
-                <label className="text-sm text-white/70">Full Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Your full name"
-                  className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30"
-                />
-              </div>
+           <form
+  action="https://formspree.io/f/mdadqbbl"
+  method="POST"
+  className="space-y-6"
+>
+  <input type="hidden" name="_redirect" value="/thank-you" />
 
+  {/* Honeypot */}
+  <div className="hidden">
+    <label htmlFor="company" className="sr-only">
+      Company
+    </label>
+    <input
+      type="text"
+      name="_gotcha"
+      id="company"
+      tabIndex={-1}
+      autoComplete="off"
+      aria-hidden="true"
+    />
+  </div>
               {/* Email */}
               <div className="space-y-2">
                 <label className="text-sm text-white/70">Email Address</label>
@@ -75,6 +84,12 @@ export default function ContactPage() {
               {/* Subject */}
               <div className="space-y-2">
                 <label className="text-sm text-white/70">Subject</label>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="What is this about?"
+                  className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30"
+                />
               </div>
 
               {/* Message */}

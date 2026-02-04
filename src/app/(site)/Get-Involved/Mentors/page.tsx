@@ -46,10 +46,28 @@ export default function MentorsPage() {
           </h2>
 
           <form
-            action="https://formspree.io/f/XXXXXX"
+            action="https://formspree.io/f/xjgonldo"
             method="POST"
             className="space-y-6"
           >
+            {/* Redirect */}
+            <input type="hidden" name="_redirect" value="/thank-you" />
+
+            {/* Honeypot */}
+            <div className="hidden">
+              <label htmlFor="company" className="sr-only">
+                Company
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="_gotcha"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+            </div>
+
             {/* Name */}
             <div className="space-y-2">
               <label className="text-sm text-white/70">Full Name</label>

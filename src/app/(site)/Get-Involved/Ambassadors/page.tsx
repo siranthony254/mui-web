@@ -56,11 +56,8 @@ export default function AmbassadorsPage() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mb-14 grid gap-8 md:grid-cols-2"
         >
-          {/* Perks */}
           <div className="rounded-2xl border border-white/10 bg-white/5 p-7 shadow-sm hover:border-amber-400/40 transition">
-            <h2 className="text-lg font-semibold mb-4">
-              Ambassador Perks
-            </h2>
+            <h2 className="text-lg font-semibold mb-4">Ambassador Perks</h2>
             <ul className="space-y-2 text-white/75 list-disc list-inside">
               <li>Official Mic’d Up Initiative certification</li>
               <li>Leadership & media training opportunities</li>
@@ -70,11 +67,8 @@ export default function AmbassadorsPage() {
             </ul>
           </div>
 
-          {/* Requirements */}
           <div className="rounded-2xl border border-white/10 bg-white/5 p-7 shadow-sm hover:border-amber-400/40 transition">
-            <h2 className="text-lg font-semibold mb-4">
-              Requirements
-            </h2>
+            <h2 className="text-lg font-semibold mb-4">Requirements</h2>
             <ul className="space-y-2 text-white/75 list-disc list-inside">
               <li>Currently enrolled at a recognized university/college</li>
               <li>Strong communication and leadership potential</li>
@@ -99,10 +93,28 @@ export default function AmbassadorsPage() {
           </h2>
 
           <form
-            action="https://formspree.io/f/XXXXXX"
+            action="https://formspree.io/f/xbdknweo"
             method="POST"
             className="space-y-6"
           >
+            {/* Redirect */}
+            <input type="hidden" name="_redirect" value="/thank-you" />
+
+            {/* Honeypot */}
+            <div className="hidden">
+              <label htmlFor="company" className="sr-only">
+                Company
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="_gotcha"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+            </div>
+
             {/* Name */}
             <div className="space-y-2">
               <label className="text-sm text-white/70">Full Name</label>
