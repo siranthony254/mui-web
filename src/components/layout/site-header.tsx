@@ -56,12 +56,12 @@ const NAV_ITEMS = [
     items: [
       {
         title: "Campus Reports",
-        description: "Original student-focused research(coming soon)",
+        description: "Original student-focused research",
         href: "",
       },
       {
         title: "Youth Trends",
-        description: "Emerging voices and movements(coming soon)",
+        description: "Emerging voices and movements",
         href: "",
       },
     ],
