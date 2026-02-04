@@ -6,7 +6,7 @@ export default function MentorsPage() {
       <div className="mx-auto max-w-4xl px-6 py-20">
         {/* Header */}
         <header className="mb-14 space-y-4">
-          <h1 className="text-4xl font-semibold tracking-tight">
+          <h1 className="text-4xl font-semibold tracking-tight text-amber-400">
             Become a Mentor
           </h1>
           <p className="max-w-2xl text-white/70 leading-relaxed">

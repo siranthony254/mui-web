@@ -19,7 +19,7 @@ export default function PartnersPage() {
           transition={{ duration: 0.7 }}
           className="mb-20 max-w-3xl space-y-6"
         >
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-amber-400">
             Partnerships & Collaborations
           </h1>
           <p className="text-lg text-white/70 leading-relaxed">

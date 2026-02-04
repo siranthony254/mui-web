@@ -51,10 +51,10 @@ export default function FoundingDirectorsPage() {
             </div>
 
             {/* Name */}
-            <h3 className="text-lg font-medium">{director.name}</h3>
+            <h3 className="text-lg font-medium text-amber-400">{director.name}</h3>
 
             {/* Role */}
-            <p className="mt-1 text-sm text-amber-400">
+            <p className="mt-1 text-sm text-emerald-400 font-semibold">
               {director.department}
             </p>
 
