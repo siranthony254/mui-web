@@ -35,23 +35,18 @@ const NAV_ITEMS = [
     items: [
       {
         title: "Campus Listening & Dialogue Tours",
-        description: "We listen to students, amplify their voices, and plant cultural ripples across campuses.(coming soon)",
+        description: "We visit campuses to listen, learn, and amplify student voices",
         href: "/Programs/campus-tours",
       },
       {
-        title: "Talent & Mentorship",
-        description: "Identifying and nurturing voices(coming soon)",
-        href: "",
-      },
-      {
-        title: "Leadership Formation",
-        description: "Values-driven leadership development (coming soon)",
-        href: "",
+        title: "Mentorship & Leadership",
+        description: "Identifying and nurturing voices for global impact",
+        href: "/Get-Involved/ment-lead",
       },
       {
         title: "Events & Summits",
-        description: "Campus dialogues and convenings (coming soon)",
-        href: "",
+        description: "Campus dialogues and convenings",
+        href: "/Programs/Events",
       },
     ],
   },
@@ -94,7 +89,6 @@ const NAV_ITEMS = [
   },
   {
     label: "Get Involved",
-    href: "",
     items: [
       {
         title: "Ambassadors",
