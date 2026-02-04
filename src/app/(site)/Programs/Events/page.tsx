@@ -125,7 +125,7 @@ export default function CommunityEventsPage() {
             </p>
             <p className="font-medium text-white">
                  
-                Student life does not exist in isolation; it is a vital thread in the fabric of society.Its a life 
+                Student life does not exist in isolation; it is a vital thread in the fabric of society.Its a life
                 at the intersection of Education, Culture, Policy, Industry and Society. MUI exists to bridge these
                  worlds—bringing the campus into wider conversations while inviting external voices to engage
                   meaningfully with student realities.
