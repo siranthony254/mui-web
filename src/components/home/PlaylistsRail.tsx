@@ -41,7 +41,7 @@ export function PlaylistsRail({
 
           {viewAllHref && (
             <Link
-              href={viewAllHref}
+              href="Media"
               className="text-sm font-medium text-black hover:underline"
             >
               See all
