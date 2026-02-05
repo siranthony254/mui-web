@@ -1,6 +1,7 @@
 // components/discover/CategoryRail.tsx
 "use client";
 
+import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const categories = [
@@ -11,12 +12,12 @@ const categories = [
   "Mental Health",
   "Personal Growth",
   "Policies & Education",
-  " Content & Media",
+  "Content & Media",
   "Debates & Dialogues",
   "Leadership & Influence",
 ];
 
-export function CategoryRail() {
+function CategoryRailInner() {
   const router = useRouter();
   const params = useSearchParams();
   const active = params.get("category") ?? "All";
@@ -29,17 +30,23 @@ export function CategoryRail() {
           onClick={() =>
             router.push(`/discover?category=${cat === "All" ? "" : cat}`)
           }
-          className={`px-5 py-2 rounded-full text-sm font-medium border
-            ${
-              active === cat
-                ? "bg-black text-white"
-                : "border-black/20 text-black/70 hover:bg-black hover:text-white"
-            }
-          `}
+          className={`px-5 py-2 rounded-full text-sm font-medium border ${
+            active === cat
+              ? "bg-black text-white"
+              : "border-black/20 text-black/70 hover:bg-black hover:text-white"
+          }`}
         >
           {cat}
         </button>
       ))}
     </div>
+  );
+}
+
+export function CategoryRail() {
+  return (
+    <Suspense fallback={<div className="h-12" />}>
+      <CategoryRailInner />
+    </Suspense>
   );
 }
