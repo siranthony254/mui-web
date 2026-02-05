@@ -2,7 +2,7 @@
 
 export default function WhyWeExist() {
   return (
-   <section className="border-b border-white/10 bg-neutral-950 text-white">
+   <section className="border-b border-white/10 bg-neutral-900 text-white">
   <div className="mx-auto max-w-7xl px-6 py-7">
 
     {/* Eyebrow */}

@@ -34,7 +34,7 @@ const pillars = [
 
 export function WhatWeDo() {
   return (
-    <section className="bg-neutral-950 border-b border-white/10">
+    <section className="bg-neutral-900 border-b border-white/10">
   <div className="mx-auto max-w-7xl px-6 py-20">
     
     {/* Intro */}
