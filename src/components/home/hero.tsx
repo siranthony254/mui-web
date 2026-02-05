@@ -59,7 +59,7 @@ export function HomePage() {
         className="relative max-w-4xl px-6 md:px-10 text-center"
       >
         {/* Headline */}
-        <h1 className="mb-6 tracking-tight leading-tight">
+        <h1 className="mb-2 tracking-tight leading-tight">
           <span
             className="
               block text-4xl md:text-6xl lg:text-7xl
