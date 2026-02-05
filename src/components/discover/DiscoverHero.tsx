@@ -8,7 +8,7 @@ export function DiscoverHero() {
             DISCOVER
           </p>
 
-          <h1 className="text-4xl font-semibold leading-tight">
+          <h1 className="text-4xl font-semibold leading-tight text-black">
             Real Voices: Transformative Conversations.
           </h1>
 
