@@ -139,7 +139,7 @@ export default function CommunityEventsPage() {
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-wrap gap-3">
             <CTAButton href="/contact" label="Host a Campus Conversation" />
-            <CTAButton href="/get-involved/partnerships" label="Partner With MUI" />
+            <CTAButton href="/Get-Involved/Partnerships" label="Partner With MUI" />
             <CTAButton
               href="/contact"
               label="Participate as a Speaker"
