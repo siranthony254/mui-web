@@ -1,6 +1,7 @@
 import { HomePage as HeroSection }  from "@/components/home/hero";
 import  WhyWeExist  from "@/components/home/WhyWeExist";
 import { WhatWeDo } from "@/components/home/WhatWeDo";
+import { CategoryRail } from "@/components/discover/CategoryRail";  
 import { DiscoverHero } from "@/components/discover/DiscoverHero";
 import { PlaylistsRail } from "@/components/home/PlaylistsRail"; 
 import  GetInvolved  from "@/components/home/GetInvolved";
@@ -27,7 +28,7 @@ const featuredPlaylists = [
     title: "Faith, Truth & Society",
     count: "10 talks",
     image: "/playlist-3.jpg",
-    href: "/watch/playlists/faith",
+    href: "/Media/playlists/faith",
   },
   {
     title: "Creativity",
@@ -43,6 +44,7 @@ export default function HomePage() {
       <HeroSection />
       <WhyWeExist />
       <WhatWeDo />
+      <CategoryRail />
       <DiscoverHero />
       <PlaylistsRail title="Featured Playlists" playlists={featuredPlaylists} />
       <GetInvolved />
