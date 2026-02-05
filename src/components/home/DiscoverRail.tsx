@@ -1,65 +1,80 @@
-// src/components/home/DiscoverRail.tsx
 "use client";
 
 import Link from "next/link";
 
 const categories = [
-  { label: "All", slug: "all" },
-  { label: "Talent & Creativity", slug: "talent" },
-  { label: "Debates & Dialogues", slug: "debates" },
-  { label: "Panels & Forums", slug: "panels" },
-  { label: "Mental Health", slug: "mental-health" },
-  { label: "Leadership & Influence", slug: "leadership" },
-  { label: "Education", slug: "education" },
-  { label: "Research & Insights", slug: "research" },
+  "Talent & Creativity",
+  "Research & Insights",
+  "Sustainability",
+  "Panels & Forums",
+  "Mental Health",
+  "Personal Growth",
+  "Policies & Governance",
+  "Education",
+  "Debates & Dialogues",
+  "Leadership & Influence",
+  "Innovation & Entrepreneurship",
 ];
 
 export default function DiscoverRail() {
   return (
     <section className="bg-black text-white border-y border-white/10">
-      <div className="mx-auto max-w-7xl px-6 py-8">
-        
-        {/* Header */}
-        <div className="mb-6 flex items-end justify-between">
-          <div>
-            <h2 className="text-xl font-semibold">Discover</h2>
-            <p className="mt-1 text-sm text-white/60">
-              Explore voices, ideas, and stories shaping campus life
-            </p>
+      <div className="mx-auto max-w-7xl px-6 py-5">
+        <div className="flex items-center gap-6">
+          {/* Left label */}
+          <h2 className="text-2xl font-semibold tracking-tight shrink-0">
+            Discover
+          </h2>
+
+          {/* Scroll rail */}
+          <div
+            className="
+              flex gap-3 overflow-x-auto scrollbar-hide
+              flex-1
+            "
+          >
+            {categories.map((label) => (
+              <Link
+                key={label}
+                href={`/media/${label.toLowerCase().replace(/\s+/g, "-")}`}
+                className="
+                  shrink-0
+                  rounded-md
+                  bg-white/20
+                  px-4 py-2
+                  text-sm font-medium
+                  text-white
+                  hover:bg-white hover:text-black
+                  transition-colors
+                "
+              >
+                {label}
+              </Link>
+            ))}
           </div>
 
-          <Link
-            href="/"
-            className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100"
-          >
-            Coming Soon!!
-          </Link>
-        </div>
-
-        {/* Category Rail */}
-        <div
-          className="
-            flex gap-3 overflow-x-auto scrollbar-hide
-            snap-x snap-mandatory
-            pb-1
-          "
-        >
-          {categories.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={`/Media/${cat.slug}`}
+          {/* Right actions */}
+          <div className="flex items-center gap-4 shrink-0">
+            <button
+              aria-label="Scroll categories"
               className="
-                snap-start shrink-0
-                px-5 py-2 rounded-full
-                text-sm font-medium
-                bg-white/10 text-white/90
+                flex h-9 w-9 items-center justify-center
+                rounded-full
+                bg-white/20
                 hover:bg-white hover:text-black
                 transition
               "
             >
-              {cat.label}
+              →
+            </button>
+
+            <Link
+              href="/media"
+              className="text-sm font-medium hover:underline"
+            >
+              See all
             </Link>
-          ))}
+          </div>
         </div>
       </div>
     </section>

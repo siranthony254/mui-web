@@ -1,7 +1,8 @@
-import  HomeHero  from "@/components/home/HomeHero";
+import { HomePage as HeroSection }  from "@/components/home/hero";
 import  WhyWeExist  from "@/components/home/WhyWeExist";
 import { WhatWeDo } from "@/components/home/WhatWeDo";
 import  DiscoverRail  from "@/components/home/DiscoverRail";
+import { PlaylistsRail } from "@/components/home/PlaylistsRail"; 
 import  GetInvolved  from "@/components/home/GetInvolved";
 
 /* ------------------------------------------------------------------ */
@@ -38,10 +39,11 @@ const featuredPlaylists = [
 export default function HomePage() {
   return (
     <>
-      <HomeHero />
+      <HeroSection />
       <WhyWeExist />
       <WhatWeDo />
       <DiscoverRail />
+      <PlaylistsRail title="Featured Playlists" playlists={featuredPlaylists} />
       <GetInvolved />
 
     </>
