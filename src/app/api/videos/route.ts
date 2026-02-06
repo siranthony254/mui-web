@@ -1,4 +1,3 @@
-// app/api/videos/route.ts
 import { NextResponse } from "next/server";
 import { MediaItem } from "@/components/media/types/media";
 
@@ -12,7 +11,7 @@ export async function GET(req: Request) {
     // ===================== PODCASTS =====================
     {
       id: "playlist-faith-001",
-      type: "podcast", // ✅ fixed to match section=podcast
+      type: "podcast",
       category: "Faith & Spiritual Growth",
       title: "Living as a System of Purpose",
       description: "Living purposefully in campus.",
@@ -22,11 +21,14 @@ export async function GET(req: Request) {
       primaryPlatform: "youtube",
       youtubeId: "_Ngw2Houq68",
       externalUrl: "https://youtu.be/_Ngw2Houq68",
-      social: { youtube: "https://youtu.be/_Ngw2Houq68" },
-      showInRail: true,
+      social: {
+        youtube: "https://youtu.be/_Ngw2Houq68",
+      },
+      showInRail: true, // 👈 hidden but still accessible via API
     },
+
     {
-      id: "playlist-personal-growth-001",
+      id: "mui-podcast-001",
       type: "podcast",
       category: "Personal Growth",
       title: "Fresher Life & Mental Health",
@@ -37,10 +39,15 @@ export async function GET(req: Request) {
       primaryPlatform: "youtube",
       youtubeId: "o1zGk4rtoC8",
       externalUrl: "https://youtu.be/o1zGk4rtoC8",
-      social: { youtube: "https://youtu.be/o1zGk4rtoC8" },
-      featured: true, // editorial hero
-      showInRail: true,
+      social: {
+        youtube: "https://youtu.be/o1zGk4rtoC8",
+      },
+      comingSoon: false,
+
+      featured: true,     // 👈 editorial hero
+      showInRail: true,   // 👈 visible in PlaylistsRail
     },
+
     {
       id: "mui-podcast-002",
       type: "podcast",
@@ -53,29 +60,35 @@ export async function GET(req: Request) {
       primaryPlatform: "youtube",
       youtubeId: "YjrYed2sCz4",
       externalUrl: "https://youtu.be/YjrYed2sCz4",
-      social: { youtube: "https://youtu.be/YjrYed2sCz4" },
+      social: {
+        youtube: "https://youtu.be/YjrYed2sCz4",
+      },
       showInRail: true,
     },
 
-    // ===================== TALKS =====================
+    // ===================== DOCUMENTARIES =====================
     {
       id: "doc-campus-life-001",
-      type: "podcast",
+      type: "documentary",
       category: "Student Life",
-      title: "Purpose in Campus Life",
-      description: "A podcast exploring purpose in campus life.",
+      title: "Fresher Life Documentary",
+      description: "A documentary exploring fresher life.",
       campus: "Muranga University of Technology",
       duration: "32 min",
       thumbnail: "https://img.youtube.com/vi/_Ngw2Houq68/hqdefault.jpg",
       primaryPlatform: "youtube",
       youtubeId: "_Ngw2Houq68",
       externalUrl: "https://youtu.be/_Ngw2Houq68",
-      social: { youtube: "https://youtu.be/_Ngw2Houq68" },
+      social: {
+        youtube: "https://youtu.be/_Ngw2Houq68",
+      },
       showInRail: true,
     },
+
+    // ===================== TALKS =====================
     {
       id: "muc-talk-001",
-      type: "talk",
+      type: "podcast",
       category: "Student Life",
       title: "Campus Reality Talk",
       description: "A short campus talk.",
@@ -85,8 +98,10 @@ export async function GET(req: Request) {
       primaryPlatform: "youtube",
       youtubeId: "OKwxZonPRZc",
       externalUrl: "https://youtu.be/OKwxZonPRZc",
-      social: { youtube: "https://youtu.be/OKwxZonPRZc" },
-      showInRail: true,
+      social: {
+        youtube: "https://youtu.be/OKwxZonPRZc",
+      },
+      showInRail: true, // 👈 exists, but NOT shown in rail
     },
   ];
 
@@ -94,14 +109,18 @@ export async function GET(req: Request) {
   let filtered = videos;
 
   if (section) {
-    filtered = filtered.filter((v) => v.type === section);
+    filtered = filtered.filter(v => v.type === section);
   }
 
   if (category && category !== "All") {
-    filtered = filtered.filter((v) => v.category === category);
+    filtered = filtered.filter(v => v.category === category);
   }
 
-  filtered = filtered.filter((v) => v.showInRail !== false);
+  // 👇 Editorial visibility control for rails
+  filtered = filtered.filter(v => v.showInRail !== false);
 
-  return NextResponse.json({ videos: filtered, nextCursor: null });
+  return NextResponse.json({
+    videos: filtered,
+    nextCursor: null,
+  });
 }
