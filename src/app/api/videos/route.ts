@@ -4,9 +4,8 @@ import { MediaItem } from "@/components/media/types/media";
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
 
-  const section = searchParams.get("section"); // podcast | talk | documentary
-  const category = searchParams.get("category");
-  const rail = searchParams.get("rail"); // "true" | null
+  const section = searchParams.get("section"); // podcast | talk | documentary | playlist
+  const category = searchParams.get("category"); // optional
 
   const videos: MediaItem[] = [
     // ===================== PODCASTS =====================
@@ -25,8 +24,7 @@ export async function GET(req: Request) {
       social: {
         youtube: "https://youtu.be/_Ngw2Houq68",
       },
-      showInRail: true,
-      featured: false, // 👈 hidden but still accessible via API
+      showInRail: true, // 👈 hidden but still accessible via API
     },
 
     {
@@ -46,13 +44,51 @@ export async function GET(req: Request) {
       },
       comingSoon: false,
 
-      featured: false,     // 👈 editorial hero
+      featured: true,     // 👈 editorial hero
       showInRail: true,   // 👈 visible in PlaylistsRail
     },
-  
+
+    {
+      id: "mui-podcast-002",
+      type: "podcast",
+      category: "Mental Health",
+      title: "Pressure, Expectations & Balance",
+      description: "Navigating mental health in campus spaces.",
+      campus: "Muranga University of Technology",
+      duration: "48 min",
+      thumbnail: "https://img.youtube.com/vi/YjrYed2sCz4/hqdefault.jpg",
+      primaryPlatform: "youtube",
+      youtubeId: "YjrYed2sCz4",
+      externalUrl: "https://youtu.be/YjrYed2sCz4",
+      social: {
+        youtube: "https://youtu.be/YjrYed2sCz4",
+      },
+      showInRail: true,
+    },
+
+    // ===================== DOCUMENTARIES =====================
+    {
+      id: "doc-campus-life-001",
+      type: "documentary",
+      category: "Student Life",
+      title: "Fresher Life Documentary",
+      description: "A documentary exploring fresher life.",
+      campus: "Muranga University of Technology",
+      duration: "32 min",
+      thumbnail: "https://img.youtube.com/vi/_Ngw2Houq68/hqdefault.jpg",
+      primaryPlatform: "youtube",
+      youtubeId: "_Ngw2Houq68",
+      externalUrl: "https://youtu.be/_Ngw2Houq68",
+      social: {
+        youtube: "https://youtu.be/_Ngw2Houq68",
+      },
+      showInRail: true,
+    },
+
+    // ===================== TALKS =====================
     {
       id: "muc-talk-001",
-      type: "talk",
+      type: "podcast",
       category: "Student Life",
       title: "Campus Reality Talk",
       description: "A short campus talk.",
@@ -69,14 +105,9 @@ export async function GET(req: Request) {
     },
   ];
 
+  // ===================== FILTERING =====================
   let filtered = videos;
 
-  // 🎯 Rail fetch: mixed content, single rule
-  if (rail === "true") {
-    filtered = filtered.filter(v => v.showInRail);
-  }
-
-  // Section pages (Podcast page, Talks page, etc.)
   if (section) {
     filtered = filtered.filter(v => v.type === section);
   }
@@ -84,6 +115,9 @@ export async function GET(req: Request) {
   if (category && category !== "All") {
     filtered = filtered.filter(v => v.category === category);
   }
+
+  // 👇 Editorial visibility control for rails
+  filtered = filtered.filter(v => v.showInRail !== false);
 
   return NextResponse.json({
     videos: filtered,
