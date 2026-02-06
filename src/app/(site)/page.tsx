@@ -1,14 +1,9 @@
-import { HomePage as HeroSection }  from "@/components/home/hero";
-import  WhyWeExist  from "@/components/home/WhyWeExist";
+import { HomePage as HeroSection } from "@/components/home/hero";
+import WhyWeExist from "@/components/home/WhyWeExist";
 import { WhatWeDo } from "@/components/home/WhatWeDo";
 import { CategoryRail } from "@/components/discover/CategoryRail";
-import { PlaylistsRail } from "@/components/home/PlaylistsRail"; 
-import  GetInvolved  from "@/components/home/GetInvolved";
-import { Disc } from "lucide-react";
-
-
-
-
+import { PlaylistsRail } from "@/components/home/PlaylistsRail";
+import GetInvolved from "@/components/home/GetInvolved";
 
 export default function HomePage() {
   return (
@@ -17,9 +12,15 @@ export default function HomePage() {
       <WhyWeExist />
       <WhatWeDo />
       <CategoryRail />
-      <PlaylistsRail title="Playlists" type="podcast"/>
-      <GetInvolved />
 
+      {/* Mixed-content editorial rail (podcasts, talks, documentaries) */}
+      <PlaylistsRail
+        title="Playlists"
+        subtitle="Podcasts, talks, and documentaries shaping campus culture"
+        viewAllHref="/media"
+      />
+
+      <GetInvolved />
     </>
   );
 }

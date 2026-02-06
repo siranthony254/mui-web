@@ -38,14 +38,14 @@ function CategoryRailInner() {
 
         return (
           <button
-            key={cat.value}
-            onClick={() =>
-              router.push(
+              onClick={() =>
+                router.push(
                 cat.value === "all"
                   ? "/discover"
-                  : `/discover?category=${cat.value}`
-              )
-            }
+                : `/discover?category=${cat.value}`
+  
+                  )
+                     }
             className={`
               whitespace-nowrap
               px-4 sm:px-5
