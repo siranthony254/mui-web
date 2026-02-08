@@ -66,16 +66,6 @@ const NAV_ITEMS = [
         description: "Brief, timely takes on campus culture and youth trends",
         href: "/blog",
       },
-      {
-        title: "Campus Reports",
-        description: "Original student-focused research",
-        href: "",
-      },
-      {
-        title: "Youth Trends",
-        description: "Emerging voices and movements",
-        href: "",
-      },
     ],
   },
   {

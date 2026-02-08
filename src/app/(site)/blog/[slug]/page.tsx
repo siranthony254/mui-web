@@ -41,6 +41,10 @@ export default async function BlogPostPage({
       ? new Date(props.Published.date.start).toLocaleDateString()
       : "Draft";
 
+    // Optional author (safe: renders only if present later)
+    const author =
+      props.Author?.rich_text?.[0]?.plain_text ?? null;
+
     // Fetch Notion page content
     let recordMap: any = null;
     try {
@@ -73,9 +77,16 @@ export default async function BlogPostPage({
           </p>
 
           {/* Title */}
-          <h1 className="mb-5 text-4xl font-semibold leading-tight tracking-tight text-white">
+          <h1 className="mb-4 text-4xl font-semibold leading-tight tracking-tight text-white">
             {title}
           </h1>
+
+          {/* Author byline */}
+          {author && (
+            <p className="mb-6 text-sm text-white/60">
+              By <span className="text-white/80">{author}</span>
+            </p>
+          )}
 
           {/* Excerpt / Dek */}
           {excerpt && (
@@ -85,10 +96,33 @@ export default async function BlogPostPage({
           )}
 
           {/* Divider */}
-          <div className="mb-10 h-px w-full bg-white/10" />
+          <div className="mb-12 h-px w-full bg-white/10" />
 
           {/* Notion Content */}
-          <div className="prose prose-invert prose-neutral max-w-none prose-p:leading-relaxed prose-p:text-white/80 prose-headings:text-white prose-a:text-amber-400 hover:prose-a:text-amber-300">
+          <div
+            className="
+              prose prose-invert prose-neutral max-w-none
+              prose-p:leading-relaxed prose-p:text-white/80
+              prose-headings:text-white
+              prose-a:text-amber-400 hover:prose-a:text-amber-300
+
+              /* Pull quotes */
+              prose-blockquote:border-l-amber-400/40
+              prose-blockquote:bg-white/5
+              prose-blockquote:py-4
+              prose-blockquote:px-6
+              prose-blockquote:not-italic
+              prose-blockquote:text-white/85
+              prose-blockquote:rounded-r-xl
+
+              /* Footnotes / references */
+              prose-ol:text-sm
+              prose-ul:text-sm
+              prose-li:text-white/60
+              prose-li:leading-relaxed
+              prose-hr:border-white/10
+            "
+          >
             {recordMap && Object.keys(recordMap).length > 0 ? (
               <NotionContent recordMap={recordMap} />
             ) : (
