@@ -452,7 +452,7 @@ const EQUIPMENT_ITEMS = [
     name: "Podcast Microphone Kit",
     description: "Professional audio setup for interviews and podcasts.",
     price: "KES 25,000",
-    progress: 40,
+    progress: 0,
     impact: [
       "Clear voice capture",
       "Reduced background noise",
@@ -465,7 +465,7 @@ const EQUIPMENT_ITEMS = [
     name: "Mirrorless Production Camera",
     description: "High-quality recording for documentaries and talks.",
     price: "KES 65,000",
-    progress: 60,
+    progress: 0,
     impact: [
       "Multi-platform content",
       "Archival documentation",
@@ -478,7 +478,7 @@ const EQUIPMENT_ITEMS = [
     name: "LED Lighting Kit",
     description: "Consistent lighting for indoor productions.",
     price: "KES 15,000",
-    progress: 25,
+    progress: 0,
     impact: [
       "Elevated visual presence",
       "Reliable filming setup",
