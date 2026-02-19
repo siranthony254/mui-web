@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -8,6 +9,9 @@ const fadeUp = {
 };
 
 export default function PartnersPage() {
+  const params = useSearchParams();
+  const isSuccess = params.get("success") === "true";
+
   return (
     <section className="min-h-screen bg-slate-950 text-white">
       <div className="mx-auto max-w-5xl px-6 py-24">
@@ -29,135 +33,24 @@ export default function PartnersPage() {
           </p>
         </motion.header>
 
-        {/* Why Partner */}
-        <motion.section
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="mb-20"
-        >
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8 shadow-sm">
-            <h2 className="text-2xl font-medium mb-5">
-              Why Partner With Mic’d Up Initiative
-            </h2>
-            <ul className="space-y-3 text-white/75 list-disc list-inside">
-              <li>Direct access to authentic campus communities</li>
-              <li>Credible, values-driven youth engagement</li>
-              <li>Research-informed media and programming</li>
-              <li>Long-term institutional impact beyond one-off campaigns</li>
-            </ul>
-          </div>
-        </motion.section>
-
-        {/* Partnership Areas */}
-        <motion.section
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="mb-24 space-y-10"
-        >
-          <h2 className="text-2xl font-medium">Partnership Areas</h2>
-
-          <div className="grid gap-8">
-            {[
-              {
-                title: "Educational Institutions",
-                points: [
-                  "Universities & colleges (public & private)",
-                  "Student unions & campus clubs",
-                  "Alumni associations",
-                ],
-                purpose:
-                  "Facilitate campus programs, mentorship, leadership development, and student engagement initiatives.",
-              },
-              {
-                title: "Media & Content Platforms",
-                points: [
-                  "Journalism schools",
-                  "Filmmakers & documentary producers",
-                  "Youth-focused media houses",
-                ],
-                purpose:
-                  "Co-produce podcasts, documentaries, and visual storytelling that elevates youth perspectives responsibly.",
-              },
-              {
-                title: "Government & Policy Makers",
-                points: [
-                  "Ministry of Education & higher education commissions",
-                  "Local education boards & student welfare departments",
-                  "National youth councils",
-                ],
-                purpose:
-                  "Conduct policy-influencing research, convene national youth forums, and inform education reform.",
-              },
-              {
-                title: "Influencers & Thought Leaders",
-                points: [
-                  "Student leaders & notable alumni",
-                  "Youth motivational speakers",
-                  "Global youth leaders & content creators",
-                ],
-                purpose:
-                  "Guest podcast features, masterclasses, mentorship sessions, and campaigns promoting values and excellence.",
-              },
-              {
-                title: "Research Institutions & Think Tanks",
-                points: [
-                  "Campus research centers",
-                  "Media & communication institutes",
-                  "Youth-focused policy think tanks",
-                ],
-                purpose:
-                  "Provide data-driven insights, institutional credibility, and policy influence across youth ecosystems.",
-              },
-              {
-                title: "NGOs & Nonprofit Organizations",
-                points: [
-                  "Mental health organizations",
-                  "Literacy & education-focused NGOs",
-                ],
-                purpose:
-                  "Co-host mentorship programs, workshops, awareness campaigns, and student support initiatives.",
-              },
-              {
-                title: "International Youth Movements",
-                points: [
-                  "Global media & content regulation bodies",
-                  "International leadership & research networks",
-                ],
-                purpose:
-                  "Co-create global youth research, enable cross-cultural learning, and promote ethical media standards.",
-              },
-            ].map((area, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.08 }}
-                className="rounded-2xl border border-white/10 bg-white/5 p-7 shadow-sm hover:border-amber-400/40 transition"
-              >
-                <h3 className="text-xl font-semibold mb-3">
-                  {idx + 1}. {area.title}
-                </h3>
-                <ul className="list-disc list-inside text-white/75 space-y-2">
-                  {area.points.map((p, i) => (
-                    <li key={i}>{p}</li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-white/60 leading-relaxed">
-                  <span className="font-medium text-white/80">Purpose:</span>{" "}
-                  {area.purpose}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+        {/* Thank You Message */}
+        {isSuccess && (
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="mb-12 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-6 text-center"
+          >
+            <h3 className="text-xl font-semibold text-amber-300 mb-2">
+              Thank you for reaching out!
+            </h3>
+            <p className="text-white/70">
+              Your partnership inquiry has been received. Our team will review
+              your submission and contact you shortly to explore collaboration
+              opportunities.
+            </p>
+          </motion.div>
+        )}
 
         {/* Partnership Form */}
         <motion.section
@@ -178,6 +71,9 @@ export default function PartnersPage() {
               method="POST"
               className="space-y-6"
             >
+              {/* Redirect back with success flag */}
+              <input type="hidden" name="_next" value="?success=true" />
+
               {/* Organization */}
               <div className="space-y-2">
                 <label className="text-sm text-white/70">
