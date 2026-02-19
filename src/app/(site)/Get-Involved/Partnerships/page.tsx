@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -8,6 +9,33 @@ const fadeUp = {
 };
 
 export default function PartnersPage() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/mykprovo", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section className="min-h-screen bg-slate-950 text-white">
       <div className="mx-auto max-w-5xl px-6 py-24">
@@ -51,114 +79,6 @@ export default function PartnersPage() {
           </div>
         </motion.section>
 
-        {/* Partnership Areas */}
-        <motion.section
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="mb-24 space-y-10"
-        >
-          <h2 className="text-2xl font-medium">Partnership Areas</h2>
-
-          <div className="grid gap-8">
-            {[
-              {
-                title: "Educational Institutions",
-                points: [
-                  "Universities & colleges (public & private)",
-                  "Student unions & campus clubs",
-                  "Alumni associations",
-                ],
-                purpose:
-                  "Facilitate campus programs, mentorship, leadership development, and student engagement initiatives.",
-              },
-              {
-                title: "Media & Content Platforms",
-                points: [
-                  "Journalism schools",
-                  "Filmmakers & documentary producers",
-                  "Youth-focused media houses",
-                ],
-                purpose:
-                  "Co-produce podcasts, documentaries, and visual storytelling that elevates youth perspectives responsibly.",
-              },
-              {
-                title: "Government & Policy Makers",
-                points: [
-                  "Ministry of Education & higher education commissions",
-                  "Local education boards & student welfare departments",
-                  "National youth councils",
-                ],
-                purpose:
-                  "Conduct policy-influencing research, convene national youth forums, and inform education reform.",
-              },
-              {
-                title: "Influencers & Thought Leaders",
-                points: [
-                  "Student leaders & notable alumni",
-                  "Youth motivational speakers",
-                  "Global youth leaders & content creators",
-                ],
-                purpose:
-                  "Guest podcast features, masterclasses, mentorship sessions, and campaigns promoting values and excellence.",
-              },
-              {
-                title: "Research Institutions & Think Tanks",
-                points: [
-                  "Campus research centers",
-                  "Media & communication institutes",
-                  "Youth-focused policy think tanks",
-                ],
-                purpose:
-                  "Provide data-driven insights, institutional credibility, and policy influence across youth ecosystems.",
-              },
-              {
-                title: "NGOs & Nonprofit Organizations",
-                points: [
-                  "Mental health organizations",
-                  "Literacy & education-focused NGOs",
-                ],
-                purpose:
-                  "Co-host mentorship programs, workshops, awareness campaigns, and student support initiatives.",
-              },
-              {
-                title: "International Youth Movements",
-                points: [
-                  "Global media & content regulation bodies",
-                  "International leadership & research networks",
-                ],
-                purpose:
-                  "Co-create global youth research, enable cross-cultural learning, and promote ethical media standards.",
-              },
-            ].map((area, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.08 }}
-                className="rounded-2xl border border-white/10 bg-white/5 p-7 shadow-sm hover:border-amber-400/40 transition"
-              >
-                <h3 className="text-xl font-semibold mb-3">
-                  {idx + 1}. {area.title}
-                </h3>
-                <ul className="list-disc list-inside text-white/75 space-y-2">
-                  {area.points.map((p, i) => (
-                    <li key={i}>{p}</li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-white/60 leading-relaxed">
-                  <span className="font-medium text-white/80">Purpose:</span>{" "}
-                  {area.purpose}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
         {/* Partnership Form */}
         <motion.section
           variants={fadeUp}
@@ -173,11 +93,7 @@ export default function PartnersPage() {
               Start a Partnership Conversation
             </h2>
 
-            <form
-              action="https://formspree.io/f/mykprovo"
-              method="POST"
-              className="space-y-6"
-            >
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Organization */}
               <div className="space-y-2">
                 <label htmlFor="organization" className="text-sm text-white/70">
@@ -250,10 +166,25 @@ export default function PartnersPage() {
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center rounded-xl bg-amber-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400/40"
+                disabled={status === "sending"}
+                className="inline-flex w-full items-center justify-center rounded-xl bg-amber-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400/40 disabled:opacity-60"
               >
-                Start Partnership
+                {status === "sending" ? "Sending..." : "Start Partnership"}
               </button>
+
+              {/* Success Message */}
+              {status === "success" && (
+                <p className="text-green-400 text-sm">
+                  ✅ Thank you! Your partnership request has been received.
+                </p>
+              )}
+
+              {/* Error Message */}
+              {status === "error" && (
+                <p className="text-red-400 text-sm">
+                  ❌ Something went wrong. Please try again.
+                </p>
+              )}
 
               <p className="text-xs text-white/50 leading-relaxed">
                 © {new Date().getFullYear()} Mic’d Up Initiative. All rights reserved.
