@@ -174,7 +174,7 @@ export default function PartnersPage() {
             </h2>
 
             <form
-              action="https://formspree.io/f/XXXXXX"
+              action="https://formspree.io/f/mdadqbbl"
               method="POST"
               className="space-y-6"
             >
