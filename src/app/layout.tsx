@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mic’d Up Initiative",
     description:
-      "Amplifying bold campus conversations and ideas shaping society.",
+      "Amplifying bold campus conversations and ideas shaping society from higher education institutions and beyond.",
     images: ["/og-image.jpg"],
   },
 
