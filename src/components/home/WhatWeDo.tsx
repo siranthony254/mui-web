@@ -5,7 +5,7 @@ const pillars = [
   {
     title: "Discover Voices",
     description:
-      "We identify emerging voices, talent, and stories across campuses—creating pathways for expression, confidence, and visibility.",
+      "We identify emerging voices, talent, and stories across campuses—creating pathways for expression, confidence, and visibility for the younger generation in universities, colleges and TVET institutions.",
     outcomes: ["Campus talent", "Untold stories", "Emerging leaders"],
     href: "/programs/talent",
   },
@@ -19,7 +19,7 @@ const pillars = [
   {
     title: "Host Dialogue",
     description:
-      "We create powerful spaces—talks, debates, panels, and summits—where ideas are exchanged and culture is shaped.",
+      "We create powerful spaces—talks, campus podcasts, debates, panels, and summits—where ideas are exchanged and culture is shaped; from Africa to the world.",
     outcomes: ["Campus talks", "Debates", "Summits & forums"],
     href: "/programs/events",
   },
@@ -45,7 +45,7 @@ export function WhatWeDo() {
       <p className="mt-4 text-lg text-white/70">
         Mic’d Up Initiative is a campus-centered movement that discovers
         voices, shapes leaders, hosts dialogue, and produces insight—turning
-        youth expression into societal impact.
+        youth expression into societal impact accross Africa.
       </p>
     </div>
 
