@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Mic’d Up Initiative",
   },
   description:
-    "Mic’d Up Initiative is a campus-driven media and ideas platform amplifying bold conversations, talks, documentaries, and stories shaping culture and society.",
+    "Mic’d Up Initiative (MUI) is a campus-based platform amplifying authentic voices, fostering mentorship, and shaping culture across higher education institutions.",
   keywords: [
     "Mic’d Up Initiative",
     "campus talks",
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
   creator: "Mic’d Up Initiative",
   publisher: "Mic’d Up Initiative",
 
-  metadataBase: new URL("https://micdupinitiative.org"), // change when domain is live
+  metadataBase: new URL("https://micdupinitiative.site"), 
 
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://micdupinitiative.org",
+    url: "https://micdupinitiative.site",
     siteName: "Mic’d Up Initiative",
     title: "Mic’d Up Initiative",
     description:

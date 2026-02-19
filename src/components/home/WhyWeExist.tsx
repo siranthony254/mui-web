@@ -12,7 +12,7 @@ export default function WhyWeExist() {
 
     {/* Headline */}
     <h2 className="mt-4 text-3xl lg:text-4xl font-semibold max-w-3xl text-white">
-      Why Mic’d Up Exists
+      Why Mic’d Up Initiative Exists
     </h2>
 
     {/* Editorial intro */}

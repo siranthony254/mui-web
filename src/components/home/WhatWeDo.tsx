@@ -40,7 +40,7 @@ export function WhatWeDo() {
     {/* Intro */}
     <div className="mb-14 max-w-3xl">
       <h2 className="text-3xl font-bold text-white">
-        What We Do
+        What We Do As MUI
       </h2>
       <p className="mt-4 text-lg text-white/70">
         Mic’d Up Initiative is a campus-centered movement that discovers
