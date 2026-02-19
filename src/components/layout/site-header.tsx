@@ -153,7 +153,7 @@ export function SiteHeader() {
           {/* Logo */}
           <div className="relative w-8 h-8 rounded-full overflow-hidden">
   <Image
-    src="/logo.jpeg"
+    src="/logo.png"
     alt="Mic’d Up Initiative Logo"
     fill
     sizes="32px"
